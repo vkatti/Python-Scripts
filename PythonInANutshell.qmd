@@ -28,6 +28,10 @@ print(1+1)
 print('Hello World') 
 ```
 
+:::{.callout-note title="Comments"}
+`Comments` are lines which start with the hash `#` symbol. The `#` tells Python not to consider these lines while executing the code. Comments can be used to give additional information to the readers of the code or to just prevent certain lines from running Make it a habit to write good comments! It will help others and you.
+:::
+
 You can print multiple values using a specified separator by using the `sep` argument in the `print` function.
 
 ```{python}
@@ -38,7 +42,7 @@ print('Hello', 'World')
 
 ```{python}
 # Example 2: Using a comma as a separator
-print('apple', 'banana', 'cherry', sep=', ')
+print('apple', 'banana', 'cherry', 'mango', 'grapes', sep=', ')
 ```
 
 ```{python}
@@ -51,11 +55,11 @@ print('Line1', 'Line2', 'Line3', sep='\n')
 print('Hello', 'World', sep='')
 ```
 
-Simply printing a value which you type out isn't so much fun. What if you have 10s or 100s of values? Do you type them all one by one? What if we could have a list of all the values we wish to print and the list can have a name which we can then pass to the `print` function? The name of this list is called as a `variable`.
+Simply printing a value which you type out isn't so much fun. What if you have 10s or 100s of values? Do you type them all one by one? What if we could have a group of all the values we wish to print and the group can have a name which we can then pass to the `print` function? The name of this group is called as a `variable`.
 
 ## Variables
 
-A variable is a name given to a single value or a group of values. It is similar to a container which contains the values. The assignment symbol `=` is used to assign a name to a value. When we write `x = 123`, we mean the value `123` is assigned to variable `x`.
+The word `variable` means 'a quantity that can vary in value', which means the value can change. In Python (and other programming langauges), a variable is a name given to a single value or a group of values. It is similar to a container which contains the values. In Python, the symbol `=` is used to assign a name to a value. Thus `=` is also called Assignment symbol in Python. When we write `x = 123`, we mean the numeric value `123` is assigned to variable `x`.
 
 Let's say we want to store the value 'apple' in a variable called `favorite_fruit`. When we pass `favourite_fruit` to the `print` function, it displays the value contained in the `favorite_fruit` variable. The value in the variable can be changed too.
 
@@ -69,33 +73,62 @@ favorite_fruit = 'banana'
 print(favorite_fruit)
 ```
 
- 
-
-
-
-We can also store multiple values in a single variable. We can pass a list of values in a `list` which can be created using `[]` square brackets or a `tuple` which can created using `()` rounded brackets or a `dictionary` which can be created using `{}` curly brackets and which can store key-value pairs. Each of these `list`, `tuple` and `dictionary` types have different properties and behave slightly differently. We will learn more about different data types in the next section.
-
+We can also store multiple values in a single variable. We can pass a group of values in a `list` which can be created using `[]` square brackets or a `tuple` which can created using `()` rounded brackets or a `dictionary` or `set` can be created using `{}` curly brackets. Each of these `list`, `tuple`, `dictionary` and `set` types have different properties and behave slightly differently. We will learn more about different data types in the next section.
 
 ```{python}
-fruits = ['apple', 'banana', 'cherry'] # list
+# list [square brackets]
+fruits = ['apple', 'banana', 'cherry', 'mango', 'grapes'] 
 print(fruits)
 ```
 
 ```{python}
-fruits = ('apple', 'banana', 'cherry') # tuple
+# tuple (round brackets)
+fruits = ('apple', 'banana', 'cherry', 'mango', 'grapes') 
 print(fruits)
 ```
 
 ```{python}
-fruits = {'f1':'apple', 'f2':'banana', 'f3':'cherry'} # dictionary
+# dictionary {curly brackets with key:value pairs}
+fruits = {'f1':'apple', 'f2':'banana', 'f3':'cherry'} 
 print(fruits)
 ```
+
+```{python}
+# set {curly brackets with individual values}
+fruits_unique = {'apple', 'apple', 'banana', 'cherry', 'mango', 'grapes', 'banana'}
+print(fruits_unique)
+```
+
+:::{.callout-note collapse="true"}
+## Primary Difference between `Dictionary` and `Set`
+
+While both `Dictionary` and `Set` are created using curly brackets `{}`, the structure differs.
+A `Dictionary` is a list of key-value pairs. The `key` is used to get the `value`.  
+
+```{python}
+fruits = {'f1':'apple', 'f2':'banana', 'f3':'cherry'}
+print(fruits['f1']) # `f1` is the key, 'apple' is the value of `f1`.
+``` 
+
+`Dictionary` is primarily used to create a map in situations where we want to do multiple find-replace operations on a string or renaming multiple columns of a table. We will see soon how we can use `Dictionary`.
+
+
+A `Set` is a list of only unique values. No duplicate values are allowed, Even if you create a `Set` with duplicate values, it keeps only the unique values. In a `Set`, we can only check if a particular value is in the set or not.
+
+```{python}
+fruits_unique = {'apple', 'apple', 'banana', 'cherry', 'mango', 'grapes', 'banana'}
+print('cherry' in fruits_unique) 
+# this will return True or False depending on whether the value 'cherry' is in the set.
+```
+
+
+:::
 
 We have only seen variables containing character strings till now. What about other types of data like numbers, true/false boolean values? Let's explore the different types of data that can be created in Python.
 
 ## Data Types
 
-The data type of a value can be determine by using the `type` function. We can print the type of a value.
+The data type of a value or variable can be determined by using the `type` function. We can print the type of a value.
 
 ```{python}
 print(type(42)) # `int` means Integer (number without decimal values)
@@ -121,20 +154,24 @@ Just like the `print` function, we can pass a list of values and it will tell us
 
 
 ```{python}
-print(type(['apple', 'banana', 'cherry'])) # list
+print(type(['apple', 'banana', 'cherry', 'mango', 'grapes'])) # list
 ```
 
 ```{python}
-print(type(('apple', 'banana', 'cherry'))) # tuple
+print(type(('apple', 'banana', 'cherry', 'mango', 'grapes'))) # tuple
 ```
 
 ```{python}
 print(type({'f1':'apple', 'f2':'banana', 'f3':'cherry'})) # `dict` means `dictionary`
 ```
 
+```{python}
+print(type({'apple', 'apple', 'banana', 'cherry', 'mango', 'grapes', 'banana'})) # `set`
+```
+
 There are some other data types available in Python but we will look at them in later chapters.
 
-### Conversion
+### Data Type Conversion (Casting)
 
 There are specific functions to convert one data type into another data type. Let's see how to convert variable `x` having value 1 can be converted into other data types.
 
@@ -213,7 +250,7 @@ print(5%2) # Modulo (Remainder)
 ```
 
 ```{python}
-print(5**2) # Exponentiation
+print(5**2) # Exponentiation (Power)
 ```
 
 
@@ -259,6 +296,124 @@ The single `=` is used to assign value to a variable. The `==` is used to check 
 
 `a=5` means the value `5` is assigned to variable `a` while `a==5` will check if the value of `a` is `5` or not and will return a `True` or `False` value.  
 
+```{python}
+a = 5
+print(a) # this will output 5
+print(a == 5) # this will output True
+```
+
+:::
+
+## Reading Values
+
+### Ordered Data Types
+To access a value from a group of values, we use the `index` or the position of the value to access it. For ordered data types like `list`, `tuple` and `str` (Yes! Strings are a group of characters!!), we can access individual values using their position inside square brackets `[]`. 
+
+:::{.callout-tip title="Important Note"}
+In Python, the first value or element is considered the Zeroth element i.e. the `index` of first element is 0.
+:::
+
+![](Indexing.png)
+
+```{python}
+fruits = ['apple', 'banana', 'cherry', 'mango', 'grapes'] # list
+print(fruits[1])
+```
+
+```{python}
+fruits = ('apple', 'banana', 'cherry', 'mango', 'grapes') # tuple
+print(fruits[2])
+```
+
+```{python}
+fruits_string = "apple"
+print(fruits_string[0])
+```
+
+You can also pass a range of index values to access multiple values.
+
+```{python}
+fruits = ['apple', 'banana', 'cherry', 'mango', 'grapes'] # list
+print(fruits[0:2])
+print(fruits[:2]) 
+# starts from 0 by default as we didn't give it a start value.
+```
+
+Note the peculiar behaviour of the range. While we pass `0:2`, it returns the Zeroth and First element only. The Element at index 2 is not returned. So `0:2` is to be read as `start with 0 and end before 2`. You can also see that the `0` in `0:2` can be ommitted and it still works. You also use negative index values to access the values from the right side. So, similar to `0:2` returns items at 0 and 1 positions, `-3:-1` should be read as `start with -3 and end before -1`. This will return the items at -3 and -2 positions.
+
+```{python}
+fruits = ['apple', 'banana', 'cherry', 'mango', 'grapes'] # list
+print(fruits[-1]) 
+# returns the last item
+```
+
+A range of negative indexes returns the last X values i.e -2
+```{python}
+print(fruits[-2:]) 
+# If stop value is not given, it returns all items till end of list.
+```
+
+
+:::{.callout-warning}
+What happens when we pass an index value which is not in the range of values? We get an `IndexError: list index out of range` error message.
+
+```{python}
+#| error: true
+fruits = ['apple', 'banana', 'cherry', 'mango', 'grapes'] # list
+print(fruits[6]) 
+# returns the last item
+```
 :::
 
 
+### Unordered Data Types
+
+`Dictionary` and `Set` data types are unordered data types. This means that the order of the value or the position of the value inside the variable does not matter. Therefore, we cannot access their values by using the index (position) of the value.
+
+In a `Dictionary`, we can use the `key` inside square brackets to access the `value` of that `key`.
+
+```{python}
+#| error: true
+# In dictionary, `f1` is the key, 'apple' is the value of `f1`.
+fruits_dict = {'f1':'apple', 'f2':'banana', 'f3':'cherry'}
+print(fruits_dict['f1'])  
+
+weird_dict = {1:"One", 0:"Zero", 2:"Two"}
+print(weird_dict[0]) 
+# Note that the Key 0 is not the first element in the dict.  
+
+# In a set, we can only check if "cherry" is in the set or not.
+fruits_set = {'apple', 'banana', 'cherry', 'mango', 'grapes'}
+print("cherry" in fruits_set) 
+print(fruits_set[0])
+```
+
+The TypeError message above basically tells us that a `Set` data type cannot be accessed using indexing.
+
+## Example Programs
+
+### List
+
+:::: {.panel-tabset}
+## Question
+Write a program to implement following steps:  
+
+1. Create List named `games` with more than 5 items
+2. Print the second item in the `games` list.
+3. Print the last 2 items in the `games` list.  
+
+Attempt it first and then look at the Answer tab.
+
+## Answer
+
+```{python}
+# Create List named `games` with more than 5 items
+games = ['Criket', 'Football', 'Kabaddi', 'Badminton', 'Tennis', 'Basketball']
+
+# Print the second item in the `games` list.
+print(games[1]) # because item at 2nd position has index=1.
+
+# Print the last 2 items in the `games` list.
+print(games[-2:])
+```
+::::
