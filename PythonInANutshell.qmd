@@ -1,0 +1,264 @@
+---
+title: Python in a Nutshell
+subtitle: "Chapter 1: A quick intro to basic concepts in Python"
+author: Vishal Katti
+date: today
+
+abstract: This post covers basic `print` and `type` commands, type-conversion and operators.
+
+format: 
+    html: 
+        toc: true
+        number-sections: true
+        theme: cyborg
+
+---
+
+## Hello World
+
+The most basic function in every programming language is to display the output of a particular code statement. In Python, we use the `print` function to print the output of a math operation or a string of characters!!
+
+```{python}
+# pass a math expression to calculate its result.
+print(1+1) 
+```
+
+```{python}
+# pass a character string to display it.
+print('Hello World') 
+```
+
+You can print multiple values using a specified separator by using the `sep` argument in the `print` function.
+
+```{python}
+# Example 1: By Default, a single space is used as the separator 
+# if the `sep` argument is not mentioned.
+print('Hello', 'World')
+```
+
+```{python}
+# Example 2: Using a comma as a separator
+print('apple', 'banana', 'cherry', sep=', ')
+```
+
+```{python}
+# Example 3: Using a newline as a separator
+print('Line1', 'Line2', 'Line3', sep='\n')
+```
+
+```{python}
+# Example 4: Using no separator
+print('Hello', 'World', sep='')
+```
+
+Simply printing a value which you type out isn't so much fun. What if you have 10s or 100s of values? Do you type them all one by one? What if we could have a list of all the values we wish to print and the list can have a name which we can then pass to the `print` function? The name of this list is called as a `variable`.
+
+## Variables
+
+A variable is a name given to a single value or a group of values. It is similar to a container which contains the values. The assignment symbol `=` is used to assign a name to a value. When we write `x = 123`, we mean the value `123` is assigned to variable `x`.
+
+Let's say we want to store the value 'apple' in a variable called `favorite_fruit`. When we pass `favourite_fruit` to the `print` function, it displays the value contained in the `favorite_fruit` variable. The value in the variable can be changed too.
+
+```{python}
+favorite_fruit = 'apple'
+print(favorite_fruit)
+```
+
+```{python}
+favorite_fruit = 'banana'
+print(favorite_fruit)
+```
+
+ 
+
+
+
+We can also store multiple values in a single variable. We can pass a list of values in a `list` which can be created using `[]` square brackets or a `tuple` which can created using `()` rounded brackets or a `dictionary` which can be created using `{}` curly brackets and which can store key-value pairs. Each of these `list`, `tuple` and `dictionary` types have different properties and behave slightly differently. We will learn more about different data types in the next section.
+
+
+```{python}
+fruits = ['apple', 'banana', 'cherry'] # list
+print(fruits)
+```
+
+```{python}
+fruits = ('apple', 'banana', 'cherry') # tuple
+print(fruits)
+```
+
+```{python}
+fruits = {'f1':'apple', 'f2':'banana', 'f3':'cherry'} # dictionary
+print(fruits)
+```
+
+We have only seen variables containing character strings till now. What about other types of data like numbers, true/false boolean values? Let's explore the different types of data that can be created in Python.
+
+## Data Types
+
+The data type of a value can be determine by using the `type` function. We can print the type of a value.
+
+```{python}
+print(type(42)) # `int` means Integer (number without decimal values)
+```
+
+```{python}
+print(type(42.0)) # `float` means Float (number with decimal values)
+```
+
+```{python}
+print(type("42.0")) # `str` means String
+```
+
+```{python}
+print(type(True)) # `bool` means Boolean which can be either True or False
+```
+
+::: {.callout-tip}
+We can define a `string` either by using 'single-quotes' or "double-quotes". Python make no distinction between the two forms.  
+:::
+
+Just like the `print` function, we can pass a list of values and it will tell us what kind of container it is.
+
+
+```{python}
+print(type(['apple', 'banana', 'cherry'])) # list
+```
+
+```{python}
+print(type(('apple', 'banana', 'cherry'))) # tuple
+```
+
+```{python}
+print(type({'f1':'apple', 'f2':'banana', 'f3':'cherry'})) # `dict` means `dictionary`
+```
+
+There are some other data types available in Python but we will look at them in later chapters.
+
+### Conversion
+
+There are specific functions to convert one data type into another data type. Let's see how to convert variable `x` having value 1 can be converted into other data types.
+
+```{python}
+x = 1
+print(x)
+print(type(x))
+```
+
+```{python}
+x_float = float(x)
+print(x_float) # Note the decimal point in the output of this line.
+print(type(x_float))
+```
+
+```{python}
+x_str = str(x)
+print(x_str)
+print(type(x_str))
+```
+
+```{python}
+x_bool = bool(x)
+print(x_bool)
+print(type(x_bool))
+```
+
+
+
+:::{.callout-note collapse="true"}  
+## Special Note about Booleans
+In Python, any value which is not Zero (0) is considered as True when converted to Boolean data type using the `bool()` function, only the number zero (0) will return `False`, everything else will return `True`.
+
+```{python}
+print(bool(0))
+print(bool(0.0))
+print(bool(1))
+print(bool("ABC"))
+print(bool(0.1))
+print(bool(['A','B','C']))
+```
+
+:::
+
+## Operators
+
+There are many symbols in Python which perform mathematical, logical or some other operations depending on the data type of the variables they operate on. These symbols are called `operators` and the variables or values on which they operate are called `operands`.
+
+### Mathematical Operators
+
+Python supports the basic mathematical operations like addition `+`, subtraction `-`, multiplication `*`, division `/`, modulo `%`, exponentiation `**`, and integer-division `//`. Each of these operators takes 2 operands and returns a single value.
+
+
+```{python}
+print(5+2) # Addition
+```
+
+```{python}
+print(5-2) # Subtraction
+```
+
+```{python}
+print(5*2) # Multiplication
+```
+
+```{python}
+print(5/2) # Division
+```
+
+```{python}
+print(5//2) # Integer Division
+```
+
+```{python}
+print(5%2) # Modulo (Remainder)
+```
+
+```{python}
+print(5**2) # Exponentiation
+```
+
+
+### Logical Operators
+
+There are few other symbols which compare 2 values and returns `True` or `False` boolean result. The symbols are greater-than `>`, less-than `<`, is-equal-to `==`, not-equal-to `!=`, greater-than-or-equal-to `>=`, and less-than-or-equal-to `<=`.
+
+```{python}
+five = 5
+two = 2
+print(five, two, sep=", ")
+```
+
+```{python}
+five > two
+```
+
+```{python}
+five >= two
+```
+
+```{python}
+five < two
+```
+
+```{python}
+five <= two
+```
+
+```{python}
+five == two
+```
+
+```{python}
+five != two
+```
+
+
+::: {.callout-note collapse="true"}   
+## Difference between `=` and `==`  
+
+The single `=` is used to assign value to a variable. The `==` is used to check for equality of value.
+
+`a=5` means the value `5` is assigned to variable `a` while `a==5` will check if the value of `a` is `5` or not and will return a `True` or `False` value.  
+
+:::
+
+
